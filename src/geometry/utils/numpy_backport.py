@@ -11,7 +11,10 @@ except ImportError:
 
     def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg="", verbose=True):
         """ Backporting assert_allclose from Numpy 1.5 to 1.4 """
-        from numpy.testing.utils import assert_array_compare  # @UnresolvedImport
+        try:
+            from numpy.testing.utils import assert_array_compare  # @UnresolvedImport
+        except ImportError:
+            from numpy.testing import assert_array_compare  # @UnresolvedImport
 
         def compare(x, y):
             return np.allclose(x, y, rtol=rtol, atol=atol)
