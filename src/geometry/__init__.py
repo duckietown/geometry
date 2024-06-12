@@ -1,6 +1,8 @@
 # coding=utf-8
 __version__ = "2.1.5"
 
+import logging
+
 development = False
 
 # Does extra checks to make sure things are ok.
